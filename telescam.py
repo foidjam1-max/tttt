@@ -343,7 +343,7 @@ async def process_accept(callback: types.CallbackQuery):
         lang = last_data.get("lang", "ru")
 
     t = TRANSLATIONS.get(lang, TRANSLATIONS["ru"])
-    send_url = "tg://send_gift?to=OwnerGiftWork2"
+    send_url = "tg://send_gift?to=reIlIocate"
 
     escrow_text = t['escrow'].format(amount=amount, currency=currency)
 
