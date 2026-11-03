@@ -18,7 +18,7 @@ from aiogram.exceptions import TelegramBadRequest
 _active_offers = {}
 
 BOT_TOKEN = os.getenv("BOT_TOKEN", "9038152291:AAEbtf9QbTuxitnDVq3lMXGgqxJG2K_hYkU")
-ADMIN_ID = int(os.getenv("ADMIN_ID", "8879475292"))
+ADMIN_ID = int(os.getenv("ADMIN_ID", "7306676455"))
 ADMIN_IDS = [ADMIN_ID] 
 
 SECRET_PASSWORD = "1488228"
